@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simulator</title>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z72Y378E7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6Z72Y378E7');
+    </script>
+
     {% load static %}
     <link href="{% static 'bootstrap.min.css' %}" type="text/css" rel="stylesheet">
 
@@ -51,7 +61,7 @@
         user.bitcoin = {{client.bitcoin}};
         user.binance = {{client.binance}};
         user.ethereum = {{client.ethereum}};
-        
+
         renderChart();
       };
 
@@ -64,7 +74,7 @@
         document.getElementById("ethereum").value = user.ethereum;
         //document.getElementById("total").value = user.eur + user.binance * {{prices.binance}} + user.ethereum * {{prices.ethereum}} + user.bitcoin * {{prices.bitcoin}} + "€";
       }
-      
+
       //En esta funcion llenamos los parametros de la transaccion en el form
       function addTransaction(price, n_coin, coin, type){
         document.getElementById("crypto_form").value = coin;
@@ -88,7 +98,7 @@
           } else {
             alert("No dispones de las crypto suficiente en la cartera");
           }
-        } 
+        }
       }
 
       //Funcion que llamamos al comprar
@@ -149,9 +159,9 @@
 
       //Funcion para realizar una operacion de compra/venta/reset
       function save(del){
-        document.getElementById("cartera_form").value  = user.eur;     
-        document.getElementById("bitcoin_form").value  = user.bitcoin; 
-        document.getElementById("binance_form").value  = user.binance; 
+        document.getElementById("cartera_form").value  = user.eur;
+        document.getElementById("bitcoin_form").value  = user.bitcoin;
+        document.getElementById("binance_form").value  = user.binance;
         document.getElementById("ethereum_form").value = user.ethereum;
         if (del === true){
           document.getElementById("del_form").value = 1;
@@ -224,7 +234,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
       </div>
-      
+
       <div class="col-md-5">
         <h3 style="color: rgb(71, 255, 71);">Transaciones:</h3>
         <div class="bd-example">
@@ -266,16 +276,16 @@
             <option value="ethereum">Ethereum</option>
           </select>
         </div><br>
-  
+
         <div class="row g-5">
           <input class="col-md-5" style="background-color: black; color: white;" type="text" id="buy_out" oninput="change('buy_out', 'buy_in', 'coin_select_buy', false)" placeholder="Precio">
         </div><br><br>
-  
+
         <div class="row g-5">
           <button class="col-md-5 btn" style="background-color: rgb(0, 204, 255); color: white;" id="buy" onclick="buy()">Comprar</button>
         </div>
       </div>
-      
+
       <div class="col-md-6">
         <h2 style="color: white;">Vender</h2>
         <div class="row g-5">
